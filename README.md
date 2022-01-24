@@ -4,7 +4,7 @@ Evaluate a news article with Natural Language Processing
 
 # Demo Preview
 
-![Landing Page Preview](https://github.com/ceofvo/landing-page/blob/master/nlp-image.PNG)
+![Landing Page Preview](https://github.com/ceofvo/evaluate-news-nlp/blob/master/nlp-image.PNG)
 
 # Description
 
