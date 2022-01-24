@@ -34,7 +34,7 @@ To run the project after cloning the repo,
 
 # Production Demo
 
-To view the live website and explore the project features, [click here.](https://ceofvo.github.io/landing-page/)
+To view the live website and explore the project features, [click here.](https://a-news-article-nlp.herokuapp.com//)
 
 # License
 
