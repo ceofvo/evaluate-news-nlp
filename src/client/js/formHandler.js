@@ -10,25 +10,25 @@ const getKey = async () => {
 }
 
 //Function to get the summary or the news article from meaningcloud
-const getSummary = async (formUrl, apiKey, noOfSent) => {
-    const formData = new FormData()
-    formData.append("key", apiKey)
-    formData.append("url", formUrl)
-    formData.append("sentences", noOfSent)
+const getSummary = async (formUrl, apiKey) => {
+  const formData = new FormData()
+  formData.append("key", apiKey)
+  formData.append("url", formUrl)
+  formData.append("lang", "en")
 
-    const requestOptions = {
-      method: 'POST',
-      body: formData,
-      redirect: 'follow'
-    };
+  const requestOptions = {
+    method: 'POST',
+    body: formData,
+    redirect: 'follow'
+  };
 
-    const response = await fetch("https://api.meaningcloud.com/summarization-1.0", requestOptions)
-    try{
-      const data = await response.json()
-      return data  
-    } catch(error){
-      console.log("error", error);
-    }
+  const response = await fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
+  try{
+    const data = await response.json()
+    return data  
+  } catch(error){
+    console.log("error", error);
+  }
 }
 
 function handleSubmit(event) {
@@ -44,13 +44,18 @@ function handleSubmit(event) {
     }
 
     getKey()
-    .then((data)=>{        
-        return getSummary(url, data.key, 10)
+    .then((data)=>{     
+      return getSummary(url, data.key)
     })
     .then((res)=> {
-        document.getElementById('results').innerHTML = res.summary
+        document.getElementById('results').innerHTML = `
+        <p><strong>Subjectivity</strong>: ${res.subjectivity} </p> 
+        <p><strong>Confidence</strong>: ${res.confidence} </p> 
+        <p><strong>Agreement</strong>: ${res.agreement} </p> 
+        <p><strong>Irony</strong>: ${res.irony} </p> 
+        <p><strong>Score Tag</strong>: ${res.score_tag} </p> 
+        `
     })
 }
-
 
 export { handleSubmit }
