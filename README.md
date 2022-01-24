@@ -21,7 +21,7 @@ To use this project, first clone the repo on your device using the command below
 
 ```git init```
 
-```git clone https://github.com/ceofvo/landing-page.git``` 
+```https://github.com/ceofvo/evaluate-news-nlp.git``` 
 
 # Usage
 
