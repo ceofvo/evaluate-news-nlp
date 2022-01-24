@@ -21,9 +21,11 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('NLP app listening on port 8081!')
-})
+const port = process.env.PORT || 8081
+
+const server = app.listen(port, ()=>{
+    console.log(`NLP app server running on port: ${port}`);
+});
 
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
